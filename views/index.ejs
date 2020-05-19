@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>My First jQuery Mobile Application</title>
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"/>
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"> </script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <script src="/javascripts/main.js"></script>
+ </head>
+
+ <body>
+<div data-role="page" id="Home">
+
+        <div data-role="header" data-theme='b'> 
+           <h1>MixingInKey</h1>
+           <a href="#Find" data-icon="search">Find Songs</a> 
+           <a href="#MyMix" data-icon="edit">My Mix</a> 
+
+        </div>
+
+        <div data-role="content" data-theme='c'>
+          <h2>Mixing in Key DJ Tool</h2>
+          <div>
+              <p>This tool is to help dj's create new sets/mixes by finding songs with the same key and bpm as a the song they input.</p>
+          </div>
+        </div>
+
+        <div data-role="footer" data-theme='a'>
+           <h1>Brought to you by Conner</h1>
+        </div>
+
+</div>
+
+<div data-role="page" id="Find">
+
+        <div data-role="header" data-theme='b'> 
+           <h1>Find New Songs!</h1>
+           <a href="#Home" data-icon="home">Home page</a> 
+           <a href="#MyMix" data-icon="edit">My Mix</a> 
+        </div>
+
+        <div data-role="content" data-theme='d'>
+           <h3>Enter song information here</h3>
+           Title: <input type="text" id="title">
+           Artist: <input type="text" id="artist">
+           BPM: <input type="text" id="bpm">
+           Key: <input type="text" id="key">
+           <a href="#NewSongs" data-icon="search">Find Songs</a> 
+        </div>
+
+        <div data-role="footer"  data-theme='a'>
+            <h1>Brought to you by Conner</h1>
+        </div>
+</div>
+
+<div data-role="page" id="MyMix">
+
+            <div data-role="header" data-theme='b'> 
+               <h1>Here you can manage your current mix</h1>
+               <a href="#Home" data-icon="home">Home page</a> 
+               <a href="#Find" data-icon="search">Find Songs</a> 
+            </div>
+    
+            <div data-role="content" data-theme='c'>
+               <h2>My Mix</h2>
+               <p>Drag to re-order, use the checkbox to delete</p>
+               <div>
+                   <p>1. song title - artist - bpm - key</p>
+                   <p>2. song title - artist - bpm - key</p>
+                   <p>3. song title - artist - bpm - key</p>
+                   <p>4. song title - artist - bpm - key</p>
+                   <p>5. song title - artist - bpm - key</p>
+               </div>
+             </div>
+    
+            <div data-role="footer"  data-theme='a'>
+                <h1>Brought to you by Conner</h1>
+            </div>
+    
+</div>
+
+<div data-role="page" id="NewSongs">
+
+   <div data-role="header" data-theme='b'> 
+      <h1>Related songs:</h1>
+      <a href="#Home" data-icon="home">Home page</a> 
+      <a href="#MyMix" data-icon="edit">My Mix</a> 
+
+   </div>
+
+   <div data-role="content" data-theme='c'>
+     <h2>Select a song to add to your mix</h2>
+     <div>
+         <p>1. song title - artist - bpm - key</p>
+         <p>2. song title - artist - bpm - key</p>
+         <p>3. song title - artist - bpm - key</p>
+         <p>4. song title - artist - bpm - key</p>
+         <p>5. song title - artist - bpm - key</p>
+         <a href="#MyMix" data-icon="edit">My Mix</a> 
+     </div>
+   </div>
+
+   <div data-role="footer" data-theme='a'>
+      <h1>Brought to you by Conner</h1>
+   </div>
+
+</div>
+ </body>
+ </html> 
