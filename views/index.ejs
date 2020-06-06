@@ -3,93 +3,106 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <title>My First jQuery Mobile Application</title>
-  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"/>
-  <script src="http://code.jquery.com/jquery-1.8.2.min.js"> </script>
-  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/themes/InKeyTheme.css" />
+  <link rel="stylesheet" href="stylesheets/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
   <script src="/javascripts/main.js"></script>
  </head>
 
+<!--Home page-->
  <body>
 <div data-role="page" id="Home">
 
-        <div data-role="header" data-theme='b'> 
+        <div data-role="header" data-theme='a'> 
            <h1>MixingInKey</h1>
            <a href="#Find" data-icon="search">Find Songs</a> 
            <a href="#MyMix" data-icon="edit">My Mix</a> 
 
         </div>
 
-        <div data-role="content" data-theme='c'>
-          <h2>Mixing in Key DJ Tool</h2>
-          <div>
-              <p>This tool is to help dj's create new sets/mixes by finding songs with the same key and bpm as a the song they input.</p>
-          </div>
-        </div>
+        <div data-role="content" data-theme='a'>
+            <h2 class="homehead">Mixing in Key DJ Tool</h2>
+            <img class="img-djhome" src="images/djhomepage.png">
+            <div data-role="">
+                <p>This tool was created to help dj's create new sets/mixes by finding songs with the same key and bpm as a the song they input.</p>
+                <p>To begin using this tool select 'Find Songs' in the top left and enter the songs information that you wish to find a match for.</p>
+</div>
+</div>
 
         <div data-role="footer" data-theme='a'>
-           <h1>Brought to you by Conner</h1>
+           <h1>Conner Hofheins 2020</h1>
         </div>
 
 </div>
 
+<!--Find songs form page-->
 <div data-role="page" id="Find">
 
-        <div data-role="header" data-theme='b'> 
+        <div data-role="header" data-theme='a'> 
            <h1>Find New Songs!</h1>
            <a href="#Home" data-icon="home">Home page</a> 
            <a href="#MyMix" data-icon="edit">My Mix</a> 
         </div>
 
-        <div data-role="content" data-theme='d'>
-           <h3>Enter song information here</h3>
-           Title: <input type="text" id="title">
-           Artist: <input type="text" id="artist">
-           BPM: <input type="text" id="bpm">
-           Key: <input type="text" id="key">
-           <a href="#NewSongs" data-icon="search">Find Songs</a> 
+        <div data-role="content" data-theme='a'>
+           <h3>Enter song information here:</h3>
+           <form action="">
+               <label for="titleinput">Title:</label>
+               <input type="text" name="titleinput" id="titleinput">
+               <label for="artistinput">Artist:</label>
+               <input type="text" name="artistinput" id="artistinput">
+               <label for="bpmtinput">BPM:</label>
+               <input type="text" name="bpminput" id="bpminput">
+               <label for="keyinput">Key:</label>
+               <input type="text" name="keyinput" id="keyinput"><br>
+               <input type="submit" value="Find Songs">
+           </form>
         </div>
 
         <div data-role="footer"  data-theme='a'>
-            <h1>Brought to you by Conner</h1>
+            <h1>Conner Hofheins 2020</h1>
         </div>
 </div>
 
+<!--MyMix page-->
 <div data-role="page" id="MyMix">
 
-            <div data-role="header" data-theme='b'> 
-               <h1>Here you can manage your current mix</h1>
-               <a href="#Home" data-icon="home">Home page</a> 
-               <a href="#Find" data-icon="search">Find Songs</a> 
-            </div>
-    
-            <div data-role="content" data-theme='c'>
-               <h2>My Mix</h2>
-               <p>Drag to re-order, use the checkbox to delete</p>
-               <div>
-                   <p>1. song title - artist - bpm - key</p>
-                   <p>2. song title - artist - bpm - key</p>
-                   <p>3. song title - artist - bpm - key</p>
-                   <p>4. song title - artist - bpm - key</p>
-                   <p>5. song title - artist - bpm - key</p>
-               </div>
-             </div>
-    
-            <div data-role="footer"  data-theme='a'>
-                <h1>Brought to you by Conner</h1>
-            </div>
-    
+    <div data-role="header" data-theme='a'> 
+        <h1>Here you can manage your current mix</h1>
+        <a href="#Home" data-icon="home">Home page</a> 
+        <a href="#Find" data-icon="search">Find Songs</a> 
+    </div>
+
+    <div data-role="content" data-theme='a'>
+        <h2>My Mix</h2>
+        <p>Drag to re-order, use the checkbox to delete</p>
+        <ul>
+            <%
+                songArray.forEach((item)=>{%>
+                    <li><%=item%></li>
+                <%});
+            %>
+        </ul>
+    </div>
+
+    <div data-role="footer"  data-theme='a'>
+        <h1>Conner Hofheins 2020</h1>
+    </div>
 </div>
 
+<!--find songs results page-->
 <div data-role="page" id="NewSongs">
 
-   <div data-role="header" data-theme='b'> 
+   <div data-role="header" data-theme='a'> 
       <h1>Related songs:</h1>
       <a href="#Home" data-icon="home">Home page</a> 
       <a href="#MyMix" data-icon="edit">My Mix</a> 
 
    </div>
 
-   <div data-role="content" data-theme='c'>
+   <div data-role="content" data-theme='a'>
      <h2>Select a song to add to your mix</h2>
      <div>
          <p>1. song title - artist - bpm - key</p>
