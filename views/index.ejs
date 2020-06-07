@@ -2,17 +2,17 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <title>My First jQuery Mobile Application</title>
+  <title>Mixing in Key</title>
   <link rel="stylesheet" href="stylesheets/themes/InKeyTheme.css" />
   <link rel="stylesheet" href="stylesheets/themes/jquery.mobile.icons.min.css" />
-  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <script src="/javascripts/main.js"></script>
- </head>
+</head>
 
 <!--Home page-->
- <body>
+<body>
 <div data-role="page" id="Home">
 
         <div data-role="header" data-theme='a'> 
@@ -26,8 +26,11 @@
             <h2 class="homehead">Mixing in Key DJ Tool</h2>
             <img class="img-djhome" src="images/djhomepage.png">
             <div data-role="">
-                <p>This tool was created to help dj's create new sets/mixes by finding songs with the same key and bpm as a the song they input.</p>
-                <p>To begin using this tool select 'Find Songs' in the top left and enter the songs information that you wish to find a match for.</p>
+                <p>This tool was created to help dj's create new sets/mixes by finding songs that can 'mix in key' with a given song.</p>
+                <p>
+                    To begin using this tool select 'Find Songs' in the top left and enter the songs information that you wish to find a match for.
+                    The search will return songs within +-2 bpm of the song you enter.
+                </p>
 </div>
 </div>
 
@@ -48,48 +51,22 @@
 
         <div data-role="content" data-theme='a'>
            <h3>Enter song information here:</h3>
-           <form action="">
+           <form id="songform">
                <label for="titleinput">Title:</label>
                <input type="text" name="titleinput" id="titleinput">
                <label for="artistinput">Artist:</label>
                <input type="text" name="artistinput" id="artistinput">
                <label for="bpmtinput">BPM:</label>
-               <input type="text" name="bpminput" id="bpminput">
+               <input type="number" name="bpminput" id="bpminput">
                <label for="keyinput">Key:</label>
                <input type="text" name="keyinput" id="keyinput"><br>
-               <input type="submit" value="Find Songs">
+               <a href="#NewSongs" style="text-decoration: none;"><input type="submit" value="Find Songs" id="submit"></a>
            </form>
         </div>
 
         <div data-role="footer"  data-theme='a'>
             <h1>Conner Hofheins 2020</h1>
         </div>
-</div>
-
-<!--MyMix page-->
-<div data-role="page" id="MyMix">
-
-    <div data-role="header" data-theme='a'> 
-        <h1>Here you can manage your current mix</h1>
-        <a href="#Home" data-icon="home">Home page</a> 
-        <a href="#Find" data-icon="search">Find Songs</a> 
-    </div>
-
-    <div data-role="content" data-theme='a'>
-        <h2>My Mix</h2>
-        <p>Drag to re-order, use the checkbox to delete</p>
-        <ul>
-            <%
-                songArray.forEach((item)=>{%>
-                    <li><%=item%></li>
-                <%});
-            %>
-        </ul>
-    </div>
-
-    <div data-role="footer"  data-theme='a'>
-        <h1>Conner Hofheins 2020</h1>
-    </div>
 </div>
 
 <!--find songs results page-->
@@ -104,20 +81,41 @@
 
    <div data-role="content" data-theme='a'>
      <h2>Select a song to add to your mix</h2>
-     <div>
-         <p>1. song title - artist - bpm - key</p>
-         <p>2. song title - artist - bpm - key</p>
-         <p>3. song title - artist - bpm - key</p>
-         <p>4. song title - artist - bpm - key</p>
-         <p>5. song title - artist - bpm - key</p>
-         <a href="#MyMix" data-icon="edit">My Mix</a> 
-     </div>
+     <form>
+        <fieldset id="resultslist">
+        </fieldset>
+     </form>
+     <a href="#MyMix" style="text-decoration: none;"><input type="submit" value="Add to My Mix" id="addmix"></a>
    </div>
 
    <div data-role="footer" data-theme='a'>
-      <h1>Brought to you by Conner</h1>
+      <h1>Conner Hofheins 2020</h1>
    </div>
-
 </div>
- </body>
- </html> 
+
+<!--MyMix page-->
+<div data-role="page" id="MyMix">
+
+    <div data-role="header" data-theme='a'> 
+        <h1>Your current mix</h1>
+        <a href="#Home" data-icon="home">Home page</a> 
+        <a href="#Find" data-icon="search">Find Songs</a> 
+    </div>
+
+    <div data-role="content" data-theme='a'>
+        <h2>My Mix</h2>
+        <p>Use the checkbox to delete an item</p>
+        <form>
+            <fieldset id="mymixlist">
+            </fieldset>
+         </form>
+         <a style="text-decoration: none;"><input type="reset" value="Remove From My Mix" id="removemix"></a>
+         <a style="text-decoration: none;"><input type="reset" value="Clear My Mix" id="clearmix"></a>
+    </div>
+
+    <div data-role="footer"  data-theme='a'>
+        <h1>Conner Hofheins 2020</h1>
+    </div>
+</div>
+</body>
+</html> 

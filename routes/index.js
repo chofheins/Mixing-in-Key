@@ -4,7 +4,11 @@ var ServerArray = require('../data');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { songrArray: ServerArray, title: 'Mixing-in-Key' });
+  res.render('index', { songArray: ServerArray, title: 'Mixing-in-Key' });
+});
+
+router.get('/data', function(req, res, next) {
+    res.json(ServerArray);
 });
 
 module.exports = router;
