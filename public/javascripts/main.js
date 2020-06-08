@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         console.log(mymixArray);
     });
 
+    //Function to load my mix data
     function myMixLoad() {
         document.getElementById("mymixlist").innerHTML = "";
         for (let i = 0; i < mymixArray.length; i++) {
@@ -111,11 +112,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
             document.getElementById("mixlabel" + (i + 1)).append(span);
         }
     }
+
     // this will refresh the data each time you navigate back to the MyMix page
     $(document).on('pagebeforeshow', '#MyMix', function () {
         myMixLoad();
     });
 
+    //Remove selected song with button press
     document.getElementById("removemix").addEventListener("click", function () {
         for (let i = 0; i < mymixArray.length; i++) {
             let check = document.getElementById("mixsong" + i).checked;
@@ -128,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         myMixLoad();
     });
 
+    //Clear my mix and refresh data shown
     document.getElementById("clearmix").addEventListener("click", function () {
         mymixArray = [];
         myMixLoad();
